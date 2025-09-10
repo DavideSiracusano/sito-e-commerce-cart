@@ -1,6 +1,5 @@
 // manipolazione dom
 
-let cartElement = document.getElementById("cart");
 let cartItemsElement = document.getElementById("cart-items");
 let productCatalogElement = document.getElementById("product-catalog");
 

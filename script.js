@@ -1,7 +1,10 @@
+// manipolazione dom
+
 let cartElement = document.getElementById("cart");
 let cartItemsElement = document.getElementById("cart-items");
 let productCatalogElement = document.getElementById("product-catalog");
 
+// dati
 const productCatalog = [
   { id: 1, name: "Iphone 13", price: 500, imageUrl: "./assets/iphone13.png" },
   { id: 2, name: "Samsung S22", price: 400, imageUrl: "./assets/s22.webp" },
@@ -13,8 +16,10 @@ const productCatalog = [
   },
 ];
 
+// array carrello iniziale vuoto
 const cart = [];
 
+// ciclare sul catalogo prodotto creando elementi da appendere
 productCatalog.forEach((product) => {
   const productElement = document.createElement("div");
   productElement.classList.add("product");
@@ -32,14 +37,15 @@ productCatalog.forEach((product) => {
   const addToCartButton = document.createElement("button");
   addToCartButton.textContent = "Aggiungi al carrello";
 
+  // event listenere per aggiungere un prodotto al carrello in base all'id
   addToCartButton.addEventListener("click", () => {
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
       existingProduct.quantity++;
     } else {
-      cart.push(product);
+      cart.push({ ...product, quantity: 1 });
     }
-
+    console.log(cart);
     updateCart();
   });
 
@@ -63,14 +69,16 @@ function updateCart() {
 
   let total = 0;
 
+  // Aggiunge i prodotti al carrello
   cart.forEach((product, index) => {
     const productDiv = document.createElement("div");
     productDiv.classList.add("cart-item");
     productDiv.style.marginBottom = "5px";
 
-    productDiv.textContent = `${product.name} - €${product.price}`;
+    productDiv.textContent = `${product.name} - €${product.price} - Quantità: ${product.quantity}`;
 
     const removeButton = document.createElement("button");
+    removeButton.classList.add("remove-button");
     removeButton.textContent = "Rimuovi";
     removeButton.style.marginLeft = "10px";
 
@@ -82,7 +90,8 @@ function updateCart() {
     productDiv.appendChild(removeButton);
     cartItemsElement.appendChild(productDiv);
 
-    total += product.price;
+    // Calcola il totale
+    total += product.price * product.quantity;
   });
 
   // Totale finale
@@ -90,12 +99,4 @@ function updateCart() {
   totalDiv.style.marginTop = "10px";
   totalDiv.textContent = `Totale: €${total}`;
   cartItemsElement.appendChild(totalDiv);
-}
-
-function subTotal() {
-  let total = 0;
-  for (let i = 0; i < cart.length; i++) {
-    total += cart[i].price;
-  }
-  return total;
 }

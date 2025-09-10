@@ -23,7 +23,9 @@ p {
 #cart {
   margin: 20px auto;
   border: 1px solid #ccc;
+  border-radius: 5px;
   padding: 10px;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +42,9 @@ p {
 
 .product {
   border: 1px solid #ccc;
-  padding: 10px;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,6 +66,19 @@ button {
   cursor: pointer;
 }
 
+.remove-button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 button:hover {
   background-color: #0069d9;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
 }

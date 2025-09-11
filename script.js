@@ -78,7 +78,7 @@ function updateCart() {
 
     const removeButton = document.createElement("button");
     removeButton.classList.add("remove-button");
-    removeButton.textContent = "Rimuovi";
+    removeButton.textContent = "-";
     removeButton.style.marginLeft = "10px";
 
     removeButton.addEventListener("click", () => {
@@ -90,8 +90,20 @@ function updateCart() {
       updateCart();
     });
 
+    const clearQuantityButton = document.createElement("button");
+    clearQuantityButton.classList.add("remove-button");
+    clearQuantityButton.textContent = "Svuota Quantità";
+    clearQuantityButton.style.marginLeft = "10px";
+
+    clearQuantityButton.addEventListener("click", () => {
+      cart.splice(0, cart.length);
+      updateCart();
+    });
+
     productDiv.appendChild(removeButton);
     cartItemsElement.appendChild(productDiv);
+
+    productDiv.appendChild(clearQuantityButton);
 
     // Calcola il totale
     total += product.price * product.quantity;

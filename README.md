@@ -3,7 +3,9 @@
 
 # E-commerce Mobile - Carrello
 
-Questo progetto è una semplice demo di carrello per un sito e-commerce di prodotti mobile. Permette agli utenti di visualizzare un catalogo di prodotti, aggiungerli al carrello e rimuoverli.
+pratica: js per corso front-end (ripasso)
+
+Questo progetto è una semplice demo di carrello, per un sito e-commerce di prodotti mobile. Permette agli utenti di visualizzare un catalogo di prodotti, aggiungerli al carrello e rimuoverli.
 
 ## Funzionalità
 

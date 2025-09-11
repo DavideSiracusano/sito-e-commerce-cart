@@ -82,8 +82,12 @@ function updateCart() {
     removeButton.style.marginLeft = "10px";
 
     removeButton.addEventListener("click", () => {
-      cart.splice(index, 1); // rimuove questo singolo prodotto
-      updateCart(); // aggiorna il carrello
+      if (product.quantity > 1) {
+        product.quantity--;
+      } else {
+        cart.splice(index, 1);
+      }
+      updateCart();
     });
 
     productDiv.appendChild(removeButton);
